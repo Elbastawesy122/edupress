@@ -1,4 +1,5 @@
 import useSearchHooks from "../../Hooks/SearchHook";
+import { Link } from "react-router-dom";
 
 const Articles = () => {
   const { filteredArticles } = useSearchHooks();
@@ -18,12 +19,14 @@ const Articles = () => {
             </p>
           </div>
           <div className="viewall border-2 border-[#555555] px-4 py-2 rounded-full cursor-pointer hover:bg-[#555555] hover:text-white transition-colors duration-300">
-            <a href="#">View All Articles</a>
+            <Link to="/articles">
+              <a href="#">View All Articles</a>
+            </Link>
           </div>
         </div>
         <div className="latestArticles">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filterArticles.slice(0,3).map((article) => (
+            {filterArticles.slice(0, 3).map((article) => (
               <div
                 key={article.id}
                 className="article-card bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"

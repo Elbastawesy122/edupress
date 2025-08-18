@@ -1,10 +1,11 @@
 import useSearchHooks from "../../Hooks/SearchHook";
+import { Link } from "react-router-dom";
 
 const SmallestArticles = () => {
   const { filteredArticles } = useSearchHooks();
 
   const filterArticles = filteredArticles.filter(
-    (article) => article.reading_time_minutes <= 1
+    (article) => article.reading_time_minutes <= 2
   );
 
   return (
@@ -18,7 +19,9 @@ const SmallestArticles = () => {
             </p>
           </div>
           <div className="viewall border-2 border-[#555555] px-4 py-2 rounded-full cursor-pointer hover:bg-[#555555] hover:text-white transition-colors duration-300">
-            <a href="#">View All Articles</a>
+            <Link to="/articles">
+              <a href="#">View All Articles</a>
+            </Link>
           </div>
         </div>
         <div className="latestArticles">

@@ -10,6 +10,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, isGrid }) => {
     <div
       className={`article-card bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300
     w-full
+    ${isGrid ? "items-center" : "items-start"}
     ${isGrid ? "" : "flex flex-col lg:flex-row lg:justify-between"}`}
     >
       <img

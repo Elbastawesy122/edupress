@@ -7,10 +7,14 @@ import FilterArticle from "./FilterArticle";
 import useSearchHooks from "../../Hooks/SearchHook";
 import type Article from "../../apiproject/InterfaceAPI";
 import { useSearch } from "../../Hooks/UseSearch";
+import { FaClipboardList } from "react-icons/fa";
 
 const FetchAllArticle = () => {
-  const { filteredArticles } = useSearchHooks();
+  const { filteredArticles } = useSearchHooks() as {
+    filteredArticles: Article[];
+  };
   const [handleArticles, setHandleArticles] = useState(true);
+  const [handlelist, sethendlelist] = useState(true);
   const { searchQuery, setSearchQuery } = useSearch();
 
   const articleChunks = chunkArray<Article>(filteredArticles, 10);
@@ -18,7 +22,7 @@ const FetchAllArticle = () => {
   const uniqueAuthors = [...new Set(filterAuthor)];
 
   return (
-    <div className="fetchAllArticle px-[10%] py-15">
+    <div className="fetchAllArticle px-[5%] sm:px-[10%] py-15">
       <div className="allArticls">
         <div className="titleaddress flex items-center flex-col sm:flex-row justify-between py-4">
           <h2 className="text-3xl font-semibold">All Articles</h2>
@@ -41,12 +45,14 @@ const FetchAllArticle = () => {
                 onClick={() => setHandleArticles(true)}
               />
             )}
+            <FaClipboardList className="ml-2 text-2xl hover:text-[#FF782D] cursor-pointer" 
+            onClick={() => sethendlelist(!handlelist)}/>
           </div>
         </div>
 
-        <div className="articls flex justify-between items-start gap-4">
+        <div className="articls flex justify-between items-start flex-col-reverse md:flex-row gap-4">
           <PaginationSwiper chunks={articleChunks} isGrid={handleArticles} />
-          <FilterArticle uniqueAuthors={uniqueAuthors} />
+          <FilterArticle uniqueAuthors={uniqueAuthors} handlelist={handlelist}/>
         </div>
       </div>
     </div>

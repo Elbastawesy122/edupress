@@ -14,7 +14,7 @@ const ArticleGrid: React.FC<ArticleGridProps> = ({
   return (
     <>
       <div
-        className={`gap-6 ${
+        className={` p-5 gap-6 ${
           isGrid
             ? "grid grid-cols-1 lg:grid-cols-2"
             : "flex flex-col"
