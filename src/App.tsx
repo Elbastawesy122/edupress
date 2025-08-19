@@ -5,6 +5,7 @@ import Footer from "./Componant/LandingPage/Footer";
 import FetchAllArticle from "./Componant/FetchAllArticle/FetchAllArticle";
 import FetchCategories from "./Componant/FetchAllCategories/FetchCategories";
 import Contact from "./Componant/Contact/Contact";
+import ObjFaqs from "./Componant/Faqs/ObjFaqs";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/articles" element={<FetchAllArticle />} />
         <Route path="/AllCategories" element={<FetchCategories />} />
         <Route path="/Contact" element={<Contact />} />
+        <Route path="/ObjFaqs" element={<ObjFaqs />} />
       </Routes>
       <Footer />
     </>
