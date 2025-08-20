@@ -10,7 +10,8 @@ interface FaqItemProps {
 const FaqItem = ({ data, isOpen, onToggle }: FaqItemProps) => {
   return (
     <div
-      className="box bg-[#F5F5F5] p-4 rounded-xl flex justify-between items-start gap-4 h-fit"
+      className="box bg-[#F5F5F5] p-4 rounded-xl flex justify-between items-start gap-4 h-fit cursor-pointer"
+      onClick={onToggle}
     >
       <div className="question flex flex-col gap-4">
         <h2
@@ -38,7 +39,6 @@ const FaqItem = ({ data, isOpen, onToggle }: FaqItemProps) => {
       >
         <IoIosArrowDown
           className="text-xl cursor-pointer"
-          onClick={onToggle}
         />
       </div>
     </div>

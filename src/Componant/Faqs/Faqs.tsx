@@ -19,6 +19,9 @@ const Faqs = ({ faqs }: FaqsProps) => {
 
   return (
     <div className="faqs px-[10%] py-15">
+        <div className="title">
+            <h2 className="text-3xl font-semibold mb-4">FAQs</h2>
+        </div>
       <div className="boxes grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
         <div className="flex flex-col gap-4">
           {leftFaqs.map((data, index) => (

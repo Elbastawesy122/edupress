@@ -23,8 +23,8 @@ const Footer = () => {
             <h2 className="text-lg font-bold uppercase">Quick Links</h2>
             <ul className="list-none mt-2">
               <li>
-                <a href="/about" className="text-sm hover:underline">
-                  About Us
+                <a href="/Articles" className="text-sm hover:underline">
+                  Articles
                 </a>
               </li>
               <li>

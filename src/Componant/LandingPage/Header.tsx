@@ -3,6 +3,7 @@ import logo from "../../assets/logeEduPress.png";
 import { CiSearch } from "react-icons/ci";
 import { BsList } from "react-icons/bs";
 import { useSearch } from "../../Hooks/UseSearch";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,12 +17,16 @@ const Header = () => {
       </div>
       <div className="hidden lg:flex items-center gap-6 h-full">
         <ul className="flex items-center gap-4 h-full">
-          <li className="hover:bg-[#F5F5F5] hover:text-[#FF782D] h-full flex items-center px-3 cursor-pointer">
-            Home
-          </li>
-          <li className="hover:bg-[#F5F5F5] hover:text-[#FF782D] h-full flex items-center px-3 cursor-pointer">
-            Courses
-          </li>
+          <Link to="/" className="h-full">
+            <li className="hover:bg-[#F5F5F5] hover:text-[#FF782D] h-full flex items-center px-3 cursor-pointer">
+              Home
+            </li>
+          </Link>
+          <Link to="/Articles" className="h-full">
+            <li className="hover:bg-[#F5F5F5] hover:text-[#FF782D] h-full flex items-center px-3 cursor-pointer">
+              Articles
+            </li>
+          </Link>
           <li className="hover:bg-[#F5F5F5] hover:text-[#FF782D] h-full flex items-center px-3 cursor-pointer">
             LearnPress Add-On
           </li>

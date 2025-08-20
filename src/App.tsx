@@ -6,6 +6,7 @@ import FetchAllArticle from "./Componant/FetchAllArticle/FetchAllArticle";
 import FetchCategories from "./Componant/FetchAllCategories/FetchCategories";
 import Contact from "./Componant/Contact/Contact";
 import ObjFaqs from "./Componant/Faqs/ObjFaqs";
+import Registration from "./Componant/Register/Registration";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/AllCategories" element={<FetchCategories />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/ObjFaqs" element={<ObjFaqs />} />
+        <Route path="/Registration" element={<Registration />} />
       </Routes>
       <Footer />
     </>
