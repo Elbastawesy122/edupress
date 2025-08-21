@@ -1,105 +1,80 @@
 import logo from "../../assets/logeEduPress.png";
-import { FaFacebook } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa6";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa6";
+import useFiltertags from "../../Hooks/Filtertags";
+import { Link } from "react-router-dom";
+import { useSearch } from "../../Hooks/UseSearch";
 
 const Footer = () => {
+  const { uniqueTags } = useFiltertags();
+  const { setSearchQuery } = useSearch();
+
   return (
-    <footer className="bg-[#f6e6e6] py-4">
-      <div className="container mx-auto text-center">
-        <div className="boxes px-[10%] py-15 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 text-start ">
-          <div className="box1 mt-4">
-            <div className="logo flex items-center gap-2">
-              <img src={logo} alt="EduPress Logo" className="w-10 md:w-15" />
-              <h1 className="text-xl xl:text-2xl font-bold">EduPress</h1>
-            </div>
-            <p className="text-sm mt-2">
-              EduPress is your go-to platform for all educational resources,
-              providing a wide range of materials to enhance learning
-              experiences.
-            </p>
+    <footer className="bg-[#0f172a] text-gray-300 pt-12 pb-6">
+      <div className="container mx-auto px-[10%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div>
+          <div className="flex items-center gap-2">
+            <img src={logo} alt="EduPress Logo" className="w-12 md:w-14" />
+            <h1 className="text-2xl font-bold text-white">EduPress</h1>
           </div>
-          <div className="box2 mt-4">
-            <h2 className="text-lg font-bold uppercase">Quick Links</h2>
-            <ul className="list-none mt-2">
-              <li>
-                <a href="/Articles" className="text-sm hover:underline">
-                  Articles
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="text-sm hover:underline">
-                  Contact Us
-                </a>
-              </li>
-              <li>
-                <a href="/privacy" className="text-sm hover:underline">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="/terms" className="text-sm hover:underline">
-                  Terms of Service
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="box3 mt-4">
-            <h2 className="text-lg font-bold uppercase">Articles</h2>
-            <ul className="list-none mt-2">
-              <li>
-                <a href="/articles/latest" className="text-sm hover:underline">
-                  Latest Articles
-                </a>
-              </li>
-              <li>
-                <a href="/articles/popular" className="text-sm hover:underline">
-                  Smallest Articles
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/articles/categories"
-                  className="text-sm hover:underline"
+          <p className="text-sm mt-4 leading-relaxed text-gray-400">
+            EduPress is your go-to platform for educational resources,
+            offering diverse materials to enhance learning experiences and 
+            support knowledge growth.
+          </p>
+        </div>
+        <div>
+          <h2 className="text-lg font-semibold text-white border-b border-gray-600 pb-2">
+            Quick Links
+          </h2>
+          <ul className="mt-4 space-y-2">
+            <li><a href="/Articles" className="hover:text-white transition">Articles</a></li>
+            <li><a href="/contact" className="hover:text-white transition">Contact Us</a></li>
+            <li><a href="/ObjFaqs" className="hover:text-white transition">FAQs</a></li>
+            <li><a href="/FavoriteArticles" className="hover:text-white transition">Favorite Articles</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 className="text-lg font-semibold text-white border-b border-gray-600 pb-2">
+            Categories
+          </h2>
+          <ul className="mt-4 space-y-2">
+            {uniqueTags.slice(0, 4).map(([tag]) => (
+              <li key={tag}>
+                <Link 
+                  to="/articles" 
+                  onClick={() => setSearchQuery(tag)} 
+                  className="hover:text-white transition"
                 >
-                  Article Categories
-                </a>
+                  {tag}
+                </Link>
               </li>
-            </ul>
-          </div>
-          <div className="box4 mt-4">
-            <h2 className="text-lg font-bold uppercase">Follow Us</h2>
-            <p className="text-sm mt-2">tel: +201026288096</p>
-            <p className="text-sm mt-2">Email: elbastawesy122@gmail.com </p>
-            <ul className="list-none mt-2 flex justify-start gap-4">
-              <li>
-                <a
-                  href="https://facebook.com"
-                  className="text-sm hover:underline bg-[#3b5998] text-white p-2 rounded-lg flex items-center justify-center"
-                >
-                  <FaFacebook />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://instagram.com"
-                  className="text-sm hover:underline bg-[#e94d35] text-white p-2 rounded-lg flex items-center justify-center"
-                >
-                  <FaInstagram />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://linkedin.com"
-                  className="text-sm hover:underline bg-[#0077b5] text-white p-2 rounded-lg flex items-center justify-center"
-                >
-                  <FaLinkedin />
-                </a>
-              </li>
-            </ul>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 className="text-lg font-semibold text-white border-b border-gray-600 pb-2">
+            Contact & Follow Us
+          </h2>
+          <p className="text-sm mt-4">📞 +201026288096</p>
+          <p className="text-sm mt-1">✉ elbastawesy122@gmail.com </p>
+          <div className="flex gap-3 mt-4">
+            <a href="https://facebook.com" 
+               className="bg-[#3b5998] p-2 rounded-full hover:scale-110 transition">
+              <FaFacebook className="text-white text-lg" />
+            </a>
+            <a href="https://instagram.com" 
+               className="bg-gradient-to-tr from-pink-500 to-orange-500 p-2 rounded-full hover:scale-110 transition">
+              <FaInstagram className="text-white text-lg" />
+            </a>
+            <a href="https://linkedin.com" 
+               className="bg-[#0077b5] p-2 rounded-full hover:scale-110 transition">
+              <FaLinkedin className="text-white text-lg" />
+            </a>
           </div>
         </div>
-        <p className="text-sm">© 2025 EduPress. All rights reserved.</p>
+      </div>
+      <div className="text-center text-gray-500 text-sm mt-10 border-t border-gray-700 pt-4">
+        © 2025 EduPress. All rights reserved.
       </div>
     </footer>
   );

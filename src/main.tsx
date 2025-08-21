@@ -4,13 +4,16 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App.tsx";
 import { SearchProvider } from "./Componant/Provider/SearchProvider.tsx";
+import { FavoriteProvider } from "./Componant/Provider/FavoriteProvider.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <SearchProvider>
-        <App />
-      </SearchProvider>
+      <FavoriteProvider>
+        <SearchProvider>
+          <App />
+        </SearchProvider>
+      </FavoriteProvider>
     </BrowserRouter>
   </StrictMode>
 );

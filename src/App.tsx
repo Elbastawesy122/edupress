@@ -1,12 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 import LandingPage from "./Componant/LandingPage/LandingPage";
-import Header from "./Componant/LandingPage/Header";
+import Header from "./Componant/Header/Header";
 import Footer from "./Componant/LandingPage/Footer";
 import FetchAllArticle from "./Componant/FetchAllArticle/FetchAllArticle";
 import FetchCategories from "./Componant/FetchAllCategories/FetchCategories";
 import Contact from "./Componant/Contact/Contact";
 import ObjFaqs from "./Componant/Faqs/ObjFaqs";
 import Registration from "./Componant/Register/Registration";
+import FavoritesPage from "./Componant/Favorites/FavoritesPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/Contact" element={<Contact />} />
         <Route path="/ObjFaqs" element={<ObjFaqs />} />
         <Route path="/Registration" element={<Registration />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
       <Footer />
     </>
